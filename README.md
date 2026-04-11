@@ -8,9 +8,9 @@
 
 - Think of it as your all-in-one QR toolkit with instant previews and a sleek interface.
 
-![GitHub stars](https://img.shields.io/github/stars/jydv402/prism_qr?style=social)
-![GitHub forks](https://img.shields.io/github/forks/jydv402/prism_qr?style=social)
-![License](https://img.shields.io/github/license/jydv402/prism_qr?cacheBust=2)
+![GitHub stars](https://img.shields.io/github/stars/jydv402/prisma_qr?style=social)
+![GitHub forks](https://img.shields.io/github/forks/jydv402/prisma_qr?style=social)
+![License](https://img.shields.io/github/license/jydv402/prisma_qr?cacheBust=2)
 ![Platform](https://img.shields.io/badge/platform-flutter-blue)
 
 ---

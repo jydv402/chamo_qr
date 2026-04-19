@@ -1,10 +1,10 @@
-# 🌌 Prism QR — The Ultimate QR Code Companion
+# 🌌 Prisma QR — The Ultimate QR Code Companion
 
 <p align="center">
     <img src="assets/branding/prisma_banner.png" width="250" />
 </p>
 
-- **Prism QR** is a fast, offline-first **Flutter-based mobile app** for seamlessly scanning, creating, and managing QR codes. Enjoy blazing-fast scanning with haptics, generate customizable QR codes, and save them directly to your gallery or share them with ease.
+- **Prisma QR** is a fast, offline-first **Flutter-based mobile app** for seamlessly scanning, creating, and managing QR codes. Enjoy blazing-fast scanning with haptics, generate customizable QR codes, and save them directly to your gallery or share them with ease.
 
 - Think of it as your all-in-one QR toolkit with instant previews and a sleek interface.
 
@@ -65,7 +65,7 @@
 
 ## 🔧 Installation
 
-- Download the latest APK file from [here](https://github.com/jydv402/prism_qr/releases/latest)
+- Download the latest APK file from [here](https://github.com/jydv402/prisma_qr/releases/latest)
 - Install it and BOOM! You're good to go! 
 
 ---
@@ -118,9 +118,9 @@ Contributions are welcome and appreciated!
 To get started:
 
 1. Fork this repository
-2. Create a new branch (`git checkout -b prism_qr-feature-xyz`)
+2. Create a new branch (`git checkout -b prisma_qr-feature-xyz`)
 3. Make your changes
-4. Commit and push (`git commit -m "Added xyz"` → `git push origin prism_qr-feature-xyz`)
+4. Commit and push (`git commit -m "Added xyz"` → `git push origin prisma_qr-feature-xyz`)
 5. Open a Pull Request
 
 ---

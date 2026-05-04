@@ -5,6 +5,7 @@ class AnimatedScannerFrame extends StatefulWidget {
   final double height;
   final double cornerLength;
   final double cornerWidth;
+  final bool isScanning;
 
   const AnimatedScannerFrame({
     super.key,
@@ -12,6 +13,7 @@ class AnimatedScannerFrame extends StatefulWidget {
     this.height = 250,
     this.cornerLength = 32,
     this.cornerWidth = 4,
+    this.isScanning = true,
   });
 
   @override
@@ -29,7 +31,11 @@ class _AnimatedScannerFrameState extends State<AnimatedScannerFrame>
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1500),
-    )..repeat(reverse: true);
+    );
+
+    if (widget.isScanning) {
+      _animationController.repeat(reverse: true);
+    }
 
     // Margin from top/bottom inside the container
     const double margin = 24;
@@ -53,6 +59,18 @@ class _AnimatedScannerFrameState extends State<AnimatedScannerFrame>
   void dispose() {
     _animationController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(AnimatedScannerFrame oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.isScanning != oldWidget.isScanning) {
+      if (widget.isScanning) {
+        _animationController.repeat(reverse: true);
+      } else {
+        _animationController.stop();
+      }
+    }
   }
 
   @override

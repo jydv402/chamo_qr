@@ -82,7 +82,11 @@ class QrScannerScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const AnimatedScannerFrame(),
+                Obx(
+                  () => AnimatedScannerFrame(
+                    isScanning: controller.isScanning.value,
+                  ),
+                ),
                 const SizedBox(height: 48),
                 // Flash and Gallery Buttons
                 Row(

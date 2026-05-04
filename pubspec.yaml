@@ -1,7 +1,7 @@
-name: prisma_qr_app
+name: chamo_qr_app
 description: "A new Flutter project."
 publish_to: 'none'
-version: 1.0.0+1
+version: 0.0.9+1
 
 environment:
   sdk: ^3.11.0
@@ -15,25 +15,26 @@ dependencies:
   image_picker: ^1.2.1
   intl: ^0.20.2
   mobile_scanner: ^7.2.0
-  package_info_plus: ^9.0.0
   path_provider: ^2.1.5
   qr_flutter: ^4.1.0
-  share_plus: ^12.0.1
+  share_plus: ^13.1.0
   shared_preferences: ^2.5.4
   timeago: ^3.7.1
   url_launcher: ^6.3.2
   uuid: ^4.5.3
   vibration: ^3.1.7
+  update_checker_bottom_sheet: ^0.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  package_rename: ^1.10.1
   flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
   assets:
-    - assets/branding/prisma_fore.png
+    - assets/branding/chamo_fore.png
     - assets/sounds/
     
   fonts:
@@ -49,3 +50,16 @@ flutter:
           weight: 500
         - asset: assets/fonts/GSansFlex-SemiBold.ttf
           weight: 600
+
+
+package_rename_config:
+  android:
+    app_name: "Chamo QR" # Display name
+    package_name: "com.jdmakes.chamo_qr" # Package name
+    override_old_package: "com.jdmakes.chamo_qr" # Optional: Cleans up old folder structure
+    lang: "kotlin" # Optional: "kotlin" (default) or "java"
+
+  ios:
+    app_name: "Chamo QR" # Display name
+    bundle_name: "Chamo QR" # Bundle name
+    package_name: "com.jdmakes.chamo_qr" # Product Bundle Identifier

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prisma_qr_app/controllers/qr_maker_controller.dart';
+import 'package:chamo_qr_app/controllers/qr_maker_controller.dart';
 import 'routes/app_routes.dart';
 import 'theme/app_theme.dart';
 import 'controllers/history_controller.dart';
@@ -23,11 +23,11 @@ void main() async {
   // Initialize QR Maker Controller
   Get.put(QrMakerController());
 
-  runApp(const PrismaQrApp());
+  runApp(const ChamoQrApp());
 }
 
-class PrismaQrApp extends StatelessWidget {
-  const PrismaQrApp({super.key});
+class ChamoQrApp extends StatelessWidget {
+  const ChamoQrApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class PrismaQrApp extends StatelessWidget {
         Get.find<SettingsController>();
 
     return GetMaterialApp(
-      title: 'Prisma QR',
+      title: 'Chamo QR',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:prisma_qr_app/elements/build_divider.dart';
-import 'package:prisma_qr_app/elements/build_navigation_row.dart';
-import 'package:prisma_qr_app/elements/build_section_header.dart';
-import 'package:prisma_qr_app/models/qr_code_model.dart';
-import 'package:prisma_qr_app/utils/image_utils.dart';
-import 'package:prisma_qr_app/widgets/confirmation_bottom_sheet.dart';
-import 'package:prisma_qr_app/widgets/details_bottom_sheet.dart';
+import 'package:chamo_qr_app/elements/build_divider.dart';
+import 'package:chamo_qr_app/elements/build_navigation_row.dart';
+import 'package:chamo_qr_app/elements/build_section_header.dart';
+import 'package:chamo_qr_app/models/qr_code_model.dart';
+import 'package:chamo_qr_app/utils/image_utils.dart';
+import 'package:chamo_qr_app/widgets/confirmation_bottom_sheet.dart';
+import 'package:chamo_qr_app/widgets/details_bottom_sheet.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:intl/intl.dart';
 

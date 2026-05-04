@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:prisma_qr_app/elements/build_base_bottom_sheet.dart';
-import 'package:prisma_qr_app/theme/app_theme.dart';
-import 'package:prisma_qr_app/widgets/confirmation_bottom_sheet.dart';
-import 'package:prisma_qr_app/widgets/rename_bottom_sheet.dart';
+import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
+import 'package:chamo_qr_app/theme/app_theme.dart';
+import 'package:chamo_qr_app/widgets/confirmation_bottom_sheet.dart';
+import 'package:chamo_qr_app/widgets/rename_bottom_sheet.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:get/get.dart';
@@ -333,7 +333,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                   SharePlus.instance.share(
                     ShareParams(
                       text: record.data,
-                      subject: 'Shared via Prisma QR',
+                      subject: 'Shared via Chamo QR',
                     ),
                   );
                 },

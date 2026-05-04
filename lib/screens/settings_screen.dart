@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prisma_qr_app/elements/build_divider.dart';
-import 'package:prisma_qr_app/widgets/confirmation_bottom_sheet.dart';
-import 'package:prisma_qr_app/controllers/history_controller.dart';
+import 'package:chamo_qr_app/elements/build_divider.dart';
+import 'package:chamo_qr_app/widgets/confirmation_bottom_sheet.dart';
+import 'package:chamo_qr_app/controllers/history_controller.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:prisma_qr_app/elements/build_section_header.dart';
-import 'package:prisma_qr_app/elements/build_navigation_row.dart';
-import 'package:prisma_qr_app/controllers/settings_controller.dart';
+import 'package:chamo_qr_app/elements/build_section_header.dart';
+import 'package:chamo_qr_app/elements/build_navigation_row.dart';
+import 'package:chamo_qr_app/controllers/settings_controller.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -69,12 +69,12 @@ class SettingsScreen extends StatelessWidget {
                   child: FractionallySizedBox(
                     widthFactor: 0.75,
                     heightFactor: 0.75,
-                    child: Image.asset('assets/branding/prisma_fore.png'),
+                    child: Image.asset('assets/branding/chamo_fore.png'),
                   ),
                 ),
                 const SizedBox(height: 16),
                 Text(
-                  'Prisma QR',
+                  'Chamo QR',
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -281,7 +281,7 @@ class SettingsScreen extends StatelessWidget {
                 //       onConfirm: () {
                 //         launchUrl(
                 //           Uri.parse(
-                //             "https://github.com/jydv402/prisma_qr/releases",
+                //             "https://github.com/jydv402/chamo_qr/releases",
                 //           ),
                 //         );
                 //       },
@@ -297,10 +297,10 @@ class SettingsScreen extends StatelessWidget {
                     ConfirmationBottomSheet(
                       header: "Star the project",
                       message:
-                          "If you like Prisma QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
+                          "If you like Chamo QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
                       onConfirm: () {
                         launchUrl(
-                          Uri.parse("https://github.com/jydv402/prisma_qr"),
+                          Uri.parse("https://github.com/jydv402/chamo_qr"),
                         );
                       },
                     ),

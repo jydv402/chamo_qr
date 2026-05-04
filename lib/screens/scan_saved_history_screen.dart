@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prisma_qr_app/widgets/history_item.dart';
+import 'package:chamo_qr_app/widgets/history_item.dart';
 import '../controllers/history_controller.dart';
 import '../widgets/scan_result_bottom_sheet.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:prisma_qr_app/theme/app_theme.dart';
+import 'package:chamo_qr_app/theme/app_theme.dart';
 
 class ScanSavedHistoryScreen extends StatefulWidget {
   const ScanSavedHistoryScreen({super.key});

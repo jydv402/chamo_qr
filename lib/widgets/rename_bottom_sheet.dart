@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:prisma_qr_app/elements/build_base_bottom_sheet.dart';
+import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
 
 class RenameBottomSheet extends StatelessWidget {
   final TextEditingController nameController;

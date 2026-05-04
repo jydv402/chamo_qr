@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
-import 'package:prisma_qr_app/elements/build_base_bottom_sheet.dart';
+import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
 
 class ConfirmationBottomSheet extends StatelessWidget {
   final String header;

@@ -63,7 +63,7 @@ class ImageUtils {
 
       final result = await ImageGallerySaverPlus.saveImage(
         bytes,
-        name: fileName ?? 'Prisma_QR_${DateTime.now().millisecondsSinceEpoch}',
+        name: fileName ?? 'Chamo_QR_${DateTime.now().millisecondsSinceEpoch}',
       );
 
       if (result != null && result['isSuccess'] == true) {
@@ -93,7 +93,7 @@ class ImageUtils {
 
       // Get temporary directory
       final tempDir = await getTemporaryDirectory();
-      final file = await File('${tempDir.path}/shared_prisma_qr.png').create();
+      final file = await File('${tempDir.path}/shared_chamo_qr.png').create();
 
       // Write bytes to file
       await file.writeAsBytes(bytes);
@@ -104,7 +104,7 @@ class ImageUtils {
           files: [XFile(file.path)],
           text:
               subject ??
-              'Check out this QR Code!\n\nGenerated with Prisma QR\nhttps://github.com/jydv402/prisma_qr',
+              'Check out this QR Code!\n\nGenerated with Chamo QR\nhttps://github.com/jydv402/chamo_qr',
         ),
       );
     } catch (e) {

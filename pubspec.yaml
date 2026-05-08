@@ -28,7 +28,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  package_rename: ^1.10.1
+  # package_rename: ^1.10.1
+  # flutter_launcher_icons: ^0.14.4
   flutter_lints: ^6.0.0
 
 flutter:
@@ -52,14 +53,27 @@ flutter:
           weight: 600
 
 
-package_rename_config:
-  android:
-    app_name: "Chamo QR" # Display name
-    package_name: "com.jdmakes.chamo_qr" # Package name
-    override_old_package: "com.jdmakes.chamo_qr" # Optional: Cleans up old folder structure
-    lang: "kotlin" # Optional: "kotlin" (default) or "java"
+# package_rename_config:
+#   android:
+#     app_name: "Chamo QR" # Display name
+#     package_name: "com.jdmakes.chamo_qr" # Package name
+#     override_old_package: "com.jdmakes.chamo_qr" # Optional: Cleans up old folder structure
+#     lang: "kotlin" # Optional: "kotlin" (default) or "java"
 
-  ios:
-    app_name: "Chamo QR" # Display name
-    bundle_name: "Chamo QR" # Bundle name
-    package_name: "com.jdmakes.chamo_qr" # Product Bundle Identifier
+#   ios:
+#     app_name: "Chamo QR" # Display name
+#     bundle_name: "Chamo QR" # Bundle name
+#     package_name: "com.jdmakes.chamo_qr" # Product Bundle Identifier
+
+# flutter_launcher_icons:
+#   image_path_android: "assets/branding/chamo_branding.png"
+#   image_path_ios: "assets/branding/chamo_branding.png"
+#   android: true
+#   ios: true
+#   adaptive_icon_background: "#ffffff"
+#   adaptive_icon_foreground: "assets/branding/chamo_fore.png"
+#   adaptive_icon_foreground_inset: 16
+#   adaptive_icon_monochrome: "assets/branding/chamo_mono.png"
+#   min_sdk_android: 21
+#   remove_alpha_ios: true
+#   background_color_ios: "#ffffff"

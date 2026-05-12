@@ -1,3 +1,4 @@
+import 'package:chamo_qr_app/elements/build_section_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:chamo_qr_app/elements/build_divider.dart';
@@ -100,8 +101,6 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 32),
-
           // Scanner Preferences
           buildSectionHeader(context, 'Scanner Preferences', null),
           Container(
@@ -154,24 +153,11 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 32),
-
           // App Settings
           buildSectionHeader(context, 'App Settings', null),
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(24),
-              boxShadow: [
-                if (!isDark)
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.02),
-                    blurRadius: 10,
-                    offset: const Offset(0, 2),
-                  ),
-              ],
-            ),
-            child: Column(
+          buildSectionContainer(
+            context,
+            Column(
               children: [
                 Obx(
                   () => buildNavigationRow(
@@ -248,66 +234,58 @@ class SettingsScreen extends StatelessWidget {
                 // ),
               ],
             ),
+            isDark,
           ),
-          const SizedBox(height: 32),
 
-          // Support Settings
-          buildSectionHeader(context, 'Support', null),
-          Container(
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.surface,
-              borderRadius: BorderRadius.circular(24),
-              boxShadow: [
-                if (!isDark)
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.02),
-                    blurRadius: 10,
-                    offset: const Offset(0, 2),
-                  ),
-              ],
-            ),
-            child: Column(
+          // Updates Section
+          buildSectionHeader(context, 'Updates', null),
+          buildSectionContainer(
+            context,
+            Column(
               children: [
-                // TODO: Implement check for updates
-                // buildNavigationRow(
-                //   context,
-                //   icon: Icons.upload_rounded,
-                //   label: 'Check for updates',
-                //   onTap: () => Get.bottomSheet(
-                //     ConfirmationBottomSheet(
-                //       header: "Check for updates",
-                //       message:
-                //           "This feature is not available yet. Please check back later.\n\nHowever you could check the latest release on GitHub releases page.\n\nConfirm to proceed to GitHub releases?",
-                //       onConfirm: () {
-                //         launchUrl(
-                //           Uri.parse(
-                //             "https://github.com/jydv402/chamo_qr/releases",
-                //           ),
-                //         );
-                //       },
-                //     ),
-                //   ),
-                // ),
-                // buildDivider(context),
+                Obx(
+                  () => _buildToggleRow(
+                    context,
+                    icon: Icons.refresh_rounded,
+                    label: "Auto check for updates",
+                    value: settingsController.autoCheckForUpdates.value,
+                    onChanged: (val) {
+                      settingsController.toggleAutoCheckUpdates(val);
+                    },
+                  ),
+                ),
+                buildDivider(context),
                 buildNavigationRow(
                   context,
-                  icon: Icons.star_rounded,
-                  label: 'Star the project',
-                  onTap: () => Get.bottomSheet(
-                    ConfirmationBottomSheet(
-                      header: "Star the project",
-                      message:
-                          "If you like Chamo QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
-                      onConfirm: () {
-                        launchUrl(
-                          Uri.parse("https://github.com/jydv402/chamo_qr"),
-                        );
-                      },
-                    ),
-                  ),
+                  icon: Icons.upload_rounded,
+                  label: 'Check for updates',
+                  onTap: () => settingsController.checkForUpdates(context),
                 ),
               ],
             ),
+            isDark,
+          ),
+
+          // Support Settings
+          buildSectionHeader(context, 'Support', null),
+          buildSectionContainer(
+            context,
+            buildNavigationRow(
+              context,
+              icon: Icons.star_rounded,
+              label: 'Star the project',
+              onTap: () => Get.bottomSheet(
+                ConfirmationBottomSheet(
+                  header: "Star the project",
+                  message:
+                      "If you like Chamo QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
+                  onConfirm: () {
+                    launchUrl(Uri.parse("https://github.com/jydv402/chamo_qr"));
+                  },
+                ),
+              ),
+            ),
+            isDark,
           ),
 
           const SizedBox(height: 32),

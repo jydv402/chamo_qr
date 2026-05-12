@@ -1,3 +1,4 @@
+import 'package:chamo_qr_app/controllers/settings_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/bottom_nav_controller.dart';
@@ -13,6 +14,14 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize controller
     final BottomNavController controller = Get.put(BottomNavController());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final SettingsController settingsController =
+          Get.find<SettingsController>();
+      if (settingsController.autoCheckForUpdates.value) {
+        settingsController.checkForUpdates(context);
+      }
+    });
 
     final List<Widget> pages = [
       const QrScannerScreen(),

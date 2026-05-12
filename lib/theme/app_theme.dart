@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   // Common Colors
-  static const Color primaryLight = Color(0xFF18181B); // Zinc 900
+  static const Color primaryLight = Color.fromRGBO(24, 24, 27, 1); // Zinc 900
   static const Color primaryDark = Color(
     0xFF000000,
   ); // Or #111827 depending on screen
-  static const Color accentBlue = Color(0xFF3B82F6);
+  static const Color accentBlue = Color.fromARGB(255, 45, 77, 138);
 
   // Backgrounds
   static const Color bgLight = Color.fromARGB(

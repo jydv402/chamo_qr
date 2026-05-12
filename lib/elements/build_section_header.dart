@@ -14,7 +14,7 @@ Widget buildSectionHeader(BuildContext context, String title, String? warning) {
     letterSpacing: 1.0,
   );
   return Padding(
-    padding: const EdgeInsets.only(left: 8, bottom: 12),
+    padding: const EdgeInsets.only(left: 8, bottom: 12, top: 32),
     child: Text.rich(
       TextSpan(
         text: title.toUpperCase(),

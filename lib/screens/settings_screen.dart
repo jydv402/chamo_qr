@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Version 1.0.0',
+                  'Version 1.0.1',
                   style: TextStyle(
                     color: isDark ? Colors.grey[400] : Colors.grey[600],
                     fontSize: 14,

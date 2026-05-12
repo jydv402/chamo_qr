@@ -33,19 +33,19 @@
 
 ### Dark Mode
 <p float="left">
-    <img src="assets/screens/home_dark.jpg" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
-    <img src="assets/screens/scan_dark.jpg" width="250" style="padding-right: 10px;padding-bottom: 10px;"/>
+    <img src="assets/screens/home_dark.png" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
+    <img src="assets/screens/scan_dark.png" width="250" style="padding-right: 10px;padding-bottom: 10px;"/>
     <img src="assets/screens/history_dark.jpg" width="250" style="padding-bottom: 10px;"/>
 </p>
 <p float="left">
-    <img src="assets/screens/details_dark.jpg" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
-    <img src="assets/screens/details_page_dark.jpg" width="250" style="padding-right: 10px;padding-bottom: 10px;"/>
-    <img src="assets/screens/settings_dark.jpg" width="250" style="padding-bottom: 10px;"/>
+    <img src="assets/screens/details_dark.png" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
+    <img src="assets/screens/details_page_dark.png" width="250" style="padding-right: 10px;padding-bottom: 10px;"/>
+    <img src="assets/screens/settings_dark.png" width="250" style="padding-bottom: 10px;"/>
 </p>
 
 ### Light Mode
 <p float="left">
-    <img src="assets/screens/home_light.jpg" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
+    <img src="assets/screens/home_light.png" width="250" style="padding-right: 10px; padding-bottom: 10px;"/>
     <img src="assets/screens/history_light.jpg" width="250" style="padding-right: 10px;padding-bottom: 10px;"/>
     <img src="assets/screens/details_light.jpg" width="250" style="padding-bottom: 10px;"/>
 </p>

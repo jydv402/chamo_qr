@@ -160,21 +160,8 @@ class QrScannerController extends GetxController {
       return;
     }
 
-    // Analyze the picked image using the MobileScanner's analyzeImage method
-    final capture = await mobileController.analyzeImage(image.path);
-
-    // Handle the detected barcodes
-    if (capture != null && capture.barcodes.isNotEmpty) {
-      handleBarcode(capture);
-    } else {
-      Get.snackbar(
-        'No QR Code Found',
-        'No QR code was found in the selected image',
-        snackPosition: SnackPosition.BOTTOM,
-        margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
-        icon: Icon(Icons.error_outline),
-      );
-    }
+    // Navigate to the Gallery Scan Screen
+    Get.toNamed('/galleryScan', arguments: image.path);
   }
 
   void resumeScanning() {

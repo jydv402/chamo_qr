@@ -6,7 +6,8 @@ class AppTheme {
   static const Color primaryDark = Color(
     0xFF000000,
   ); // Or #111827 depending on screen
-  static const Color accentBlue = Color.fromARGB(255, 45, 77, 138);
+  static const Color accentBlueLight = Color.fromARGB(255, 45, 77, 138);
+  static const Color accentBlueDark = Color.fromARGB(255, 86, 140, 241);
 
   // Backgrounds
   static const Color bgLight = Color.fromARGB(
@@ -34,7 +35,7 @@ class AppTheme {
       scaffoldBackgroundColor: bgLight,
       colorScheme: ColorScheme.light(
         primary: primaryLight,
-        secondary: accentBlue,
+        secondary: accentBlueLight,
         surface: cardLight,
       ),
       textTheme: const TextTheme(
@@ -118,7 +119,7 @@ class AppTheme {
       scaffoldBackgroundColor: bgDark,
       colorScheme: ColorScheme.dark(
         primary: primaryDark,
-        secondary: accentBlue,
+        secondary: accentBlueDark,
         surface: cardDark,
       ),
       textTheme: const TextTheme(

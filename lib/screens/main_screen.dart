@@ -19,7 +19,7 @@ class MainScreen extends StatelessWidget {
       final SettingsController settingsController =
           Get.find<SettingsController>();
       if (settingsController.autoCheckForUpdates.value) {
-        settingsController.checkForUpdates(context);
+        settingsController.checkForUpdates(context, false);
       }
     });
 

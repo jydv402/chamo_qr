@@ -55,10 +55,10 @@ class SettingsController extends GetxController {
     _service.setAutoCheckUpdates(value);
   }
 
-  void checkForUpdates(BuildContext context) async {
+  void checkForUpdates(BuildContext context, bool showIfUpToDate) async {
     await UpdateCheckerBottomSheet.checkAndUpdate(
       context,
-      showIfUpToDate: true,
+      showIfUpToDate: showIfUpToDate,
       config: UpdateCheckerConfig(
         githubRepo: "jydv402/chamo_qr",
         bottomSheetColors: UpdateBottomSheetColors(

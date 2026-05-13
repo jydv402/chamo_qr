@@ -259,7 +259,8 @@ class SettingsScreen extends StatelessWidget {
                   context,
                   icon: Icons.upload_rounded,
                   label: 'Check for updates',
-                  onTap: () => settingsController.checkForUpdates(context),
+                  onTap: () =>
+                      settingsController.checkForUpdates(context, true),
                 ),
               ],
             ),

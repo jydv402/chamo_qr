@@ -33,7 +33,7 @@ jobs:
         run: flutter clean
 
       - name: Getting Dependencies
-        run: flutter pub upgrade
+        run: flutter pub get
 
       - name: Extract version from pubspec.yaml
         id: version

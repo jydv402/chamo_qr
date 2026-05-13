@@ -713,10 +713,10 @@ packages:
     dependency: "direct main"
     description:
       name: update_checker_bottom_sheet
-      sha256: "8647418083c7d6f1b1a7ca5148683b1eb3311f016cc7230f7968ee9116b72ae7"
+      sha256: "1bca157231a9585db3082f10876ec130df9e619bd404d8df34bcee9e1dab16ae"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   url_launcher:
     dependency: "direct main"
     description:

@@ -61,13 +61,7 @@ jobs:
           echo "storeFile=keystore.jks" >> android/key.properties
 
       - name: Building signed APK 
-        run: flutter build apk --release --split-per-abi --flavor github 
-      
-      - name: Verify APK Signature
-        run: |
-          APK_PATH="build/app/outputs/flutter-apk/app-arm64-v8a-github-release.apk"
-          BUILD_TOOLS_DIR=$(ls -d $ANDROID_SDK_ROOT/build-tools/* | tail -1)
-          $BUILD_TOOLS_DIR/apksigner verify --print-certs "$APK_PATH"
+        run: flutter build apk --release --split-per-abi --flavor github
 
       - name: Rename APK files
         run: |

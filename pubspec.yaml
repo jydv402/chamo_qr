@@ -1,7 +1,7 @@
 name: chamo_qr_app
 description: "A modern, fast, and secure QR code scanner and generator. Scan anything, create custom QR codes, and keep track of your history—all in one place."
 publish_to: 'none'
-version: 1.0.4+5
+version: 1.0.5+6
 
 environment:
   sdk: ^3.11.0

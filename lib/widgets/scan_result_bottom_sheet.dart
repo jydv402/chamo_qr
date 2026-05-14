@@ -205,7 +205,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                   Get.snackbar(
                     'Copied',
                     'QR code data copied to clipboard',
-                    snackPosition: SnackPosition.BOTTOM,
+                    snackPosition: SnackPosition.TOP,
                     margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                     icon: Icon(Icons.done_all_rounded),
                   );
@@ -265,7 +265,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                       Get.snackbar(
                         'Error',
                         'Could not open URL',
-                        snackPosition: SnackPosition.BOTTOM,
+                        snackPosition: SnackPosition.TOP,
                         margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
                         icon: Icon(Icons.error_outline_rounded),
                       );

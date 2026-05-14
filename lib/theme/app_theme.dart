@@ -36,6 +36,7 @@ class AppTheme {
       colorScheme: ColorScheme.light(
         primary: primaryLight,
         secondary: accentBlueLight,
+        tertiary: Colors.black,
         surface: cardLight,
       ),
       textTheme: const TextTheme(
@@ -120,6 +121,7 @@ class AppTheme {
       colorScheme: ColorScheme.dark(
         primary: primaryDark,
         secondary: accentBlueDark,
+        tertiary: Colors.white,
         surface: cardDark,
       ),
       textTheme: const TextTheme(

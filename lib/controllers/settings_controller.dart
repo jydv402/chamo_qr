@@ -29,41 +29,71 @@ class SettingsController extends GetxController {
     autoCheckForUpdates.value = _service.autoCheckUpdates;
   }
 
+  /// Toggles dark mode.
+  ///
+  /// ### Params
+  /// * `value`: The value to toggle.
   void toggleTheme(bool value) {
     isDarkMode.value = value;
     _service.setDarkMode(value);
     Get.changeThemeMode(value ? ThemeMode.dark : ThemeMode.light);
   }
 
+  /// Toggles scan sounds.
+  ///
+  /// ### Params
+  /// * `value`: The value to toggle.
   void toggleScanSounds(bool value) {
     scanSounds.value = value;
     _service.setScanSounds(value);
   }
 
+  /// Toggles haptic feedback.
+  ///
+  /// ### Params
+  /// * `value`: The value to toggle.
   void toggleHapticFeedback(bool value) {
     hapticFeedback.value = value;
     _service.setHapticFeedback(value);
   }
 
+  /// Toggles auto-copy to clipboard.
+  ///
+  /// ### Params
+  /// * `value`: The value to toggle.
   void toggleAutoCopy(bool value) {
     autoCopy.value = value;
     _service.setAutoCopy(value);
   }
 
+  /// Toggles auto-check for updates.
+  ///
+  /// ### Params
+  /// * `value`: The value to toggle.
   void toggleAutoCheckUpdates(bool value) {
     autoCheckForUpdates.value = value;
     _service.setAutoCheckUpdates(value);
   }
 
+  /// Checks for updates.
+  ///
+  /// ### Params
+  /// * `context`: The build context.
+  /// * `showIfUpToDate`: Whether to show the bottom sheet if the app is up to date.
   void checkForUpdates(BuildContext context, bool showIfUpToDate) async {
     await UpdateCheckerBottomSheet.checkAndUpdate(
       context,
       showIfUpToDate: showIfUpToDate,
       config: UpdateCheckerConfig(
+        bottomSheetStyles: UpdateBottomSheetStyles(
+          showHandle: true,
+          showBorder: true,
+          borderColor: Colors.grey.withValues(alpha: 0.3),
+        ),
         githubRepo: "jydv402/chamo_qr",
         bottomSheetColors: UpdateBottomSheetColors(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          accentColor: Theme.of(context).colorScheme.secondary,
+          accentColor: Theme.of(context).colorScheme.tertiary,
         ),
       ),
     );

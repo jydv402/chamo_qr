@@ -15,6 +15,7 @@ class MainScreen extends StatelessWidget {
     // Initialize controller
     final BottomNavController controller = Get.put(BottomNavController());
 
+    // TODO : [BUG] Bottom Sheet loaded on theme change if update is available
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final SettingsController settingsController =
           Get.find<SettingsController>();
@@ -38,7 +39,7 @@ class MainScreen extends StatelessWidget {
 
             // Floating bottom navigation bar
             const Positioned(
-              bottom: 32.0,
+              bottom: 52.0,
               left: 0,
               right: 0,
               child: BottomNavBar(),

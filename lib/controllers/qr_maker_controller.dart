@@ -33,7 +33,7 @@ class QrMakerController extends GetxController {
       Get.snackbar(
         'Error',
         'Please enter some data to generate a QR code.',
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         margin: EdgeInsets.fromLTRB(16, 16, 16, 16),
         icon: Icon(Icons.error_outline_rounded),
       );

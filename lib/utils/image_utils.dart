@@ -70,7 +70,7 @@ class ImageUtils {
         Get.snackbar(
           'Saved to Gallery',
           'The QR code was successfully saved to your device.',
-          snackPosition: SnackPosition.BOTTOM,
+          snackPosition: SnackPosition.TOP,
           duration: const Duration(seconds: 3),
         );
       } else {
@@ -80,7 +80,7 @@ class ImageUtils {
       Get.snackbar(
         'Error',
         'Could not save image: $e',
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         duration: const Duration(seconds: 3),
       );
     }
@@ -111,7 +111,7 @@ class ImageUtils {
       Get.snackbar(
         'Error',
         'Could not share image: $e',
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         duration: const Duration(seconds: 3),
       );
     }

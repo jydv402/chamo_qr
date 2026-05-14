@@ -14,6 +14,11 @@ class HistoryService {
     return File('${directory.path}/$_fileName');
   }
 
+  /// Returns the actual history file object
+  Future<File> getHistoryFile() async {
+    return _file;
+  }
+
   /// Load history from JSON file
   Future<List<QrCodeRecord>> loadHistory() async {
     try {

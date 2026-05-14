@@ -50,7 +50,7 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
         Get.snackbar(
           'No QR Code Found',
           'We couldn\'t find any QR code in this image.',
-          snackPosition: SnackPosition.BOTTOM,
+          snackPosition: SnackPosition.TOP,
           backgroundColor: Colors.black87,
           colorText: Colors.white,
           margin: const EdgeInsets.all(16),
@@ -68,7 +68,7 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
       Get.snackbar(
         'Error',
         'An error occurred while scanning the image.',
-        snackPosition: SnackPosition.BOTTOM,
+        snackPosition: SnackPosition.TOP,
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );

@@ -174,6 +174,30 @@ class SettingsScreen extends StatelessWidget {
                     },
                   ),
                 ),
+              ],
+            ),
+            isDark,
+          ),
+
+          // Data settings
+          buildSectionHeader(context, 'Data', null),
+          buildSectionContainer(
+            context,
+            Column(
+              children: [
+                buildNavigationRow(
+                  context,
+                  icon: Icons.file_upload_rounded,
+                  label: 'Export to JSON',
+                  onTap: () => Get.find<HistoryController>().exportHistory(),
+                ),
+                buildDivider(context),
+                buildNavigationRow(
+                  context,
+                  icon: Icons.file_download_rounded,
+                  label: 'Import from JSON',
+                  onTap: () => Get.find<HistoryController>().importHistory(),
+                ),
                 buildDivider(context),
                 buildNavigationRow(
                   context,
@@ -189,49 +213,6 @@ class SettingsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                // TODO: Implement export and import history
-                // buildDivider(context),
-                // buildNavigationRow(
-                //   context,
-                //   icon: Icons.file_download_rounded,
-                //   label: 'Export to JSON',
-                //   onTap: () => Get.bottomSheet(
-                //     ConfirmationBottomSheet(
-                //       header: "Export to JSON",
-                //       message:
-                //           "Are you sure you want to export your history to JSON?",
-                //       onConfirm: () {},
-                //     ),
-                //   ),
-                // ),
-                // buildDivider(context),
-                // buildNavigationRow(
-                //   context,
-                //   icon: Icons.file_download_rounded,
-                //   label: 'Export to CSV',
-                //   onTap: () => Get.bottomSheet(
-                //     ConfirmationBottomSheet(
-                //       header: "Export to CSV",
-                //       message:
-                //           "Are you sure you want to export your history to CSV?",
-                //       onConfirm: () {},
-                //     ),
-                //   ),
-                // ),
-                // buildDivider(context),
-                // buildNavigationRow(
-                //   context,
-                //   icon: Icons.upload_file,
-                //   label: 'Import from JSON',
-                //   onTap: () => Get.bottomSheet(
-                //     ConfirmationBottomSheet(
-                //       header: "Import from JSON",
-                //       message:
-                //           "Are you sure you want to import your history from JSON?",
-                //       onConfirm: () {},
-                //     ),
-                //   ),
-                // ),
               ],
             ),
             isDark,

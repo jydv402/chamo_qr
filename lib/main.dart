@@ -39,9 +39,7 @@ class ChamoQrApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: settingsController.isDarkMode.value
-          ? ThemeMode.dark
-          : ThemeMode.light,
+      themeMode: settingsController.themeMode.value,
       initialRoute: AppRoutes.main,
       getPages: AppRoutes.routes,
     );

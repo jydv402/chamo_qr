@@ -10,7 +10,7 @@ class SettingsController extends GetxController {
   SettingsController(this._service);
 
   // Observables
-  var isDarkMode = true.obs;
+  var themeMode = ThemeMode.system.obs;
   var scanSounds = true.obs;
   var hapticFeedback = true.obs;
   var autoCopy = false.obs;
@@ -23,7 +23,8 @@ class SettingsController extends GetxController {
   }
 
   void _loadSettings() {
-    isDarkMode.value = _service.isDarkMode;
+    final savedMode = _service.themeMode;
+    themeMode.value = ThemeMode.values[savedMode];
     scanSounds.value = _service.scanSounds;
     hapticFeedback.value = _service.hapticFeedback;
     autoCopy.value = _service.autoCopy;
@@ -32,14 +33,18 @@ class SettingsController extends GetxController {
         FlavorConfig.isUpdateFeatureEnabled && _service.autoCheckUpdates;
   }
 
-  /// Toggles dark mode.
+  /// Toggles theme mode.
   ///
   /// ### Params
   /// * `value`: The value to toggle.
-  void toggleTheme(bool value) {
-    isDarkMode.value = value;
-    _service.setDarkMode(value);
-    Get.changeThemeMode(value ? ThemeMode.dark : ThemeMode.light);
+  void updateThemeMode() {
+    // ThemeMode indices: 0: system, 1: light, 2: dark
+    final nextIndex = (themeMode.value.index + 1) % 3;
+    final nextMode = ThemeMode.values[nextIndex];
+
+    themeMode.value = nextMode;
+    _service.setThemeMode(nextMode.index);
+    Get.changeThemeMode(nextMode);
   }
 
   /// Toggles scan sounds.

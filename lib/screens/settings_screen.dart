@@ -82,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Version 1.0.3',
+                  'Version 1.0.4',
                   style: TextStyle(
                     color: isDark ? Colors.grey[400] : Colors.grey[600],
                     fontSize: 14,
@@ -163,16 +163,14 @@ class SettingsScreen extends StatelessWidget {
                 Obx(
                   () => buildNavigationRow(
                     context,
-                    icon: Icons.dark_mode,
+                    icon: Icons.palette_rounded,
                     label: 'Theme',
-                    valueText: settingsController.isDarkMode.value
-                        ? 'Dark'
-                        : 'Light',
-                    onTap: () {
-                      settingsController.toggleTheme(
-                        !settingsController.isDarkMode.value,
-                      );
-                    },
+                    valueText: settingsController
+                        .themeMode
+                        .value
+                        .name
+                        .capitalizeFirst!,
+                    onTap: () => settingsController.updateThemeMode(),
                   ),
                 ),
               ],

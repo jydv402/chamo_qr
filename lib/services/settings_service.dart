@@ -9,15 +9,14 @@ class SettingsService {
   }
 
   // --- Keys ---
-  static const String _isDarkModeKey = 'is_dark_mode';
+  static const String _themeModeKey = 'theme_mode';
   static const String _scanSoundsKey = 'scan_sounds';
   static const String _hapticFeedbackKey = 'haptic_feedback';
   static const String _autoCopyKey = 'auto_copy';
   static const String _autoCheckUpdatesKey = 'auto_check_updates';
 
   // --- Getters ---
-  bool get isDarkMode =>
-      _prefs.getBool(_isDarkModeKey) ?? true; // Default to dark mode
+  int get themeMode => _prefs.getInt(_themeModeKey) ?? 0;
 
   bool get scanSounds =>
       _prefs.getBool(_scanSoundsKey) ?? true; // Default to true
@@ -32,8 +31,8 @@ class SettingsService {
       _prefs.getBool(_autoCheckUpdatesKey) ?? false; // Default to false
 
   // --- Setters ---
-  Future<void> setDarkMode(bool value) async {
-    await _prefs.setBool(_isDarkModeKey, value);
+  Future<void> setThemeMode(int value) async {
+    await _prefs.setInt(_themeModeKey, value);
   }
 
   Future<void> setScanSounds(bool value) async {

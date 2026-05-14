@@ -1,0 +1,57 @@
+Categories:
+  - Utility
+License: MIT
+AuthorName: jdmakes
+SourceCode: https://github.com/jydv402/chamo_qr
+IssueTracker: https://github.com/jydv402/chamo_qr/issues
+Changelog: https://github.com/jydv402/chamo_qr/releases
+
+Summary: A modern, fast, and secure QR code scanner and generator.
+Description: |-
+    Chamo QR is a powerful and elegant QR code utility designed for speed and privacy.
+
+    Features:
+    * Lightning-fast QR and Barcode scanning.
+    * Create custom QR codes for URLs, text, Wi-Fi, and more.
+    * Save and manage your scan history locally.
+    * Beautiful, intuitive interface with dark mode support.
+    * Fully offline functionality—your data never leaves your device.
+    * Open source and privacy-focused.
+
+    Scan with confidence and generate with ease with Chamo QR.
+
+AutoName: Chamo QR
+
+RepoType: git
+Repo: https://github.com/jydv402/chamo_qr
+
+Builds:
+  - versionName: 1.0.2
+    versionCode: 3
+    commit: 1.0.2+3
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    gradle:
+      - fdroidRelease
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+    prebuild:
+      - git -C $$flutter$$ checkout -f 3.41.9
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scanignore:
+      - android
+    scandelete:
+      - .pub-cache
+    build: |-
+      export PUB_CACHE=$(pwd)/.pub-cache
+      export PATH="$$flutter$$/bin:$PATH"
+      flutter build apk --release --flavor fdroid --dart-define=IS_FDROID=true
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.2
+CurrentVersionCode: 3

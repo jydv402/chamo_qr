@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:update_checker_bottom_sheet/update_checker_bottom_sheet.dart';
 import '../services/settings_service.dart';
+import '../config/flavor_config.dart';
 
 class SettingsController extends GetxController {
   final SettingsService _service;
@@ -26,7 +27,9 @@ class SettingsController extends GetxController {
     scanSounds.value = _service.scanSounds;
     hapticFeedback.value = _service.hapticFeedback;
     autoCopy.value = _service.autoCopy;
-    autoCheckForUpdates.value = _service.autoCheckUpdates;
+    // Always false if update feature is disabled
+    autoCheckForUpdates.value =
+        FlavorConfig.isUpdateFeatureEnabled && _service.autoCheckUpdates;
   }
 
   /// Toggles dark mode.
@@ -71,6 +74,7 @@ class SettingsController extends GetxController {
   /// ### Params
   /// * `value`: The value to toggle.
   void toggleAutoCheckUpdates(bool value) {
+    if (!FlavorConfig.isUpdateFeatureEnabled) return;
     autoCheckForUpdates.value = value;
     _service.setAutoCheckUpdates(value);
   }
@@ -81,6 +85,17 @@ class SettingsController extends GetxController {
   /// * `context`: The build context.
   /// * `showIfUpToDate`: Whether to show the bottom sheet if the app is up to date.
   void checkForUpdates(BuildContext context, bool showIfUpToDate) async {
+    if (!FlavorConfig.isUpdateFeatureEnabled) {
+      if (showIfUpToDate) {
+        Get.snackbar(
+          'Updates Disabled',
+          'This version of the app does not support automatic updates.',
+          snackPosition: SnackPosition.BOTTOM,
+        );
+      }
+      return;
+    }
+
     await UpdateCheckerBottomSheet.checkAndUpdate(
       context,
       showIfUpToDate: showIfUpToDate,

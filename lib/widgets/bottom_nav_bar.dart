@@ -42,7 +42,7 @@ class BottomNavBar extends StatelessWidget {
             children: [
               _buildNavItem(
                 context: context,
-                icon: Icons.qr_code_scanner,
+                icon: Icons.qr_code_scanner_rounded,
                 index: 0,
                 isSelected: controller.currentIndex.value == 0,
                 onTap: () => controller.changeIndex(0),
@@ -50,7 +50,7 @@ class BottomNavBar extends StatelessWidget {
               const SizedBox(width: 4),
               _buildNavItem(
                 context: context,
-                icon: Icons.add,
+                icon: Icons.add_rounded,
                 index: 1,
                 isSelected: controller.currentIndex.value == 1,
                 onTap: () => controller.changeIndex(1),
@@ -59,7 +59,7 @@ class BottomNavBar extends StatelessWidget {
               const SizedBox(width: 4),
               _buildNavItem(
                 context: context,
-                icon: Icons.history,
+                icon: Icons.history_rounded,
                 index: 2,
                 isSelected: controller.currentIndex.value == 2,
                 onTap: () => controller.changeIndex(2),

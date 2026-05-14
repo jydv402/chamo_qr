@@ -7,15 +7,22 @@ import 'qr_maker_history_screen.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'scan_saved_history_screen.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // Initialize controller
-    final BottomNavController controller = Get.put(BottomNavController());
+  State<MainScreen> createState() => _MainScreenState();
+}
 
-    // TODO : [BUG] Bottom Sheet loaded on theme change if update is available
+class _MainScreenState extends State<MainScreen> {
+  // Initialize controller
+  final BottomNavController controller = Get.put(BottomNavController());
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Check for updates on init
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final SettingsController settingsController =
           Get.find<SettingsController>();
@@ -23,7 +30,10 @@ class MainScreen extends StatelessWidget {
         settingsController.checkForUpdates(context, false);
       }
     });
+  }
 
+  @override
+  Widget build(BuildContext context) {
     final List<Widget> pages = [
       const QrScannerScreen(),
       const QrMakerHistoryScreen(),

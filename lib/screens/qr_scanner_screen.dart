@@ -95,8 +95,8 @@ class QrScannerScreen extends StatelessWidget {
                     Obx(
                       () => _buildActionButton(
                         icon: controller.isTorchOn.value
-                            ? Icons.flash_off
-                            : Icons.flash_on,
+                            ? Icons.flash_on_rounded
+                            : Icons.flash_off_rounded,
                         label: 'Flash',
                         onTap: () => controller.toggleTorch(),
                       ),

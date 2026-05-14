@@ -55,7 +55,7 @@ Widget buildNavigationRow(
                 ),
               const SizedBox(width: 4),
               Icon(
-                Icons.chevron_right,
+                Icons.chevron_right_rounded,
                 color: isDark ? Colors.grey[500] : Colors.grey[400],
                 size: 20,
               ),

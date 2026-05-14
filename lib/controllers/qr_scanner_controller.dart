@@ -22,7 +22,7 @@ class QrScannerController extends GetxController {
   );
 
   // Observable variables
-  var isTorchOn = false.obs; //Turn on the flashlight
+  var isTorchOn = false.obs;
   var isScanning = true.obs; //Status of scan. True => Scanning, False => Paused
 
   // Controllers
@@ -33,6 +33,11 @@ class QrScannerController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    // Listen to the state of torch
+    mobileController.addListener(() {
+      isTorchOn.value = mobileController.value.torchState == TorchState.on;
+    });
 
     // Listen to tab changes to pause/resume the camera and save resources
     if (Get.isRegistered<BottomNavController>()) {
@@ -70,7 +75,6 @@ class QrScannerController extends GetxController {
   // Toggle the torch
   void toggleTorch() {
     mobileController.toggleTorch();
-    isTorchOn.toggle();
   }
 
   // Handle barcode detection

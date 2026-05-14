@@ -12,9 +12,9 @@ RepoType: git
 Repo: https://github.com/jydv402/chamo_qr
 
 Builds:
-  - versionName: 1.0.3
-    versionCode: 4
-    commit: 1.0.3+4
+  - versionName: 1.0.4
+    versionCode: 5
+    commit: 1.0.4+5
     gradle:
       - fdroidRelease
     output: build/app/outputs/flutter-apk/app-fdroid-release.apk
@@ -38,5 +38,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.0.3
-CurrentVersionCode: 4
+CurrentVersion: 1.0.4
+CurrentVersionCode: 5

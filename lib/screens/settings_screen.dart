@@ -82,7 +82,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Version 1.0.1',
+                  'Version 1.0.3',
                   style: TextStyle(
                     color: isDark ? Colors.grey[400] : Colors.grey[600],
                     fontSize: 14,
@@ -313,7 +313,12 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          Text(label, style: const TextStyle(fontWeight: FontWeight.w500)),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(fontWeight: FontWeight.w500),
+            ),
+          ),
           const Spacer(),
           Switch(
             value: value,

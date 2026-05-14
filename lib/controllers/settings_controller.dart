@@ -108,7 +108,7 @@ class SettingsController extends GetxController {
         githubRepo: "jydv402/chamo_qr",
         bottomSheetColors: UpdateBottomSheetColors(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          accentColor: Theme.of(context).colorScheme.tertiary,
+          accentColor: Theme.of(context).colorScheme.secondary,
         ),
       ),
     );

@@ -49,13 +49,25 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         run: echo "$KEYSTORE_BASE64" | base64 --decode > android/app/keystore.jks
 
-      - name: Building signed APK 
+      - name: Create key.properties
         env:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEYSTORE_FILE: "keystore.jks"
+        run: |
+          echo "keyAlias=$KEY_ALIAS" > android/key.properties
+          echo "keyPassword=$KEY_PASSWORD" >> android/key.properties
+          echo "storePassword=$KEYSTORE_PASSWORD" >> android/key.properties
+          echo "storeFile=keystore.jks" >> android/key.properties
+
+      - name: Building signed APK 
         run: flutter build apk --release --split-per-abi --flavor github 
+      
+      - name: Verify APK Signature
+        run: |
+          APK_PATH="build/app/outputs/flutter-apk/app-arm64-v8a-github-release.apk"
+          BUILD_TOOLS_DIR=$(ls -d $ANDROID_SDK_ROOT/build-tools/* | tail -1)
+          $BUILD_TOOLS_DIR/apksigner verify --print-certs "$APK_PATH"
 
       - name: Rename APK files
         run: |

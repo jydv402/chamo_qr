@@ -43,6 +43,7 @@ jobs:
           VERSION_CODE=$(echo $VERSION | cut -d'+' -f2)
           echo "version_name=$VERSION_NAME" >> $GITHUB_OUTPUT
           echo "version_code=$VERSION_CODE" >> $GITHUB_OUTPUT
+          echo "version_full=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Decode keystore from GitHub Secret
         env:
@@ -61,7 +62,7 @@ jobs:
           echo "storeFile=keystore.jks" >> android/key.properties
 
       - name: Building signed APK 
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --release --split-per-abi --dart-define=APP_VERSION=${{ steps.version.outputs.version_name }}
 
       - name: Rename APK files
         run: |

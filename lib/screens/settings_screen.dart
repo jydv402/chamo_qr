@@ -81,7 +81,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Version 1.0.5',
+                  'Version ${SettingsController.appVersion}',
                   style: TextStyle(
                     color: isDark ? Colors.grey[400] : Colors.grey[600],
                     fontSize: 14,
@@ -250,20 +250,33 @@ class SettingsScreen extends StatelessWidget {
           buildSectionHeader(context, 'Support', null),
           buildSectionContainer(
             context,
-            buildNavigationRow(
-              context,
-              icon: Icons.star_rounded,
-              label: 'Star the project',
-              onTap: () => Get.bottomSheet(
-                ConfirmationBottomSheet(
-                  header: "Star the project",
-                  message:
-                      "If you like Chamo QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
-                  onConfirm: () {
-                    launchUrl(Uri.parse("https://github.com/jydv402/chamo_qr"));
-                  },
+            Column(
+              children: [
+                buildNavigationRow(
+                  context,
+                  icon: Icons.share_rounded,
+                  label: "Share app with others",
+                  onTap: () => settingsController.shareApp(),
                 ),
-              ),
+                buildDivider(context),
+                buildNavigationRow(
+                  context,
+                  icon: Icons.star_rounded,
+                  label: 'Star the project',
+                  onTap: () => Get.bottomSheet(
+                    ConfirmationBottomSheet(
+                      header: "Star the project",
+                      message:
+                          "If you like Chamo QR, please consider giving it a star on GitHub and support the project!\n\nAlso helps you to get latest updates about the project.\n\nConfirm to proceed to GitHub?",
+                      onConfirm: () {
+                        launchUrl(
+                          Uri.parse("https://github.com/jydv402/chamo_qr"),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
             ),
             isDark,
           ),

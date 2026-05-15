@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:update_checker_bottom_sheet/update_checker_bottom_sheet.dart';
 import '../services/settings_service.dart';
 
 class SettingsController extends GetxController {
+  static const String appVersion = String.fromEnvironment(
+    'APP_VERSION',
+    defaultValue: 'null:debug',
+  );
+
   final SettingsService _service;
 
   SettingsController(this._service);
@@ -101,6 +107,19 @@ class SettingsController extends GetxController {
           accentColor: Theme.of(context).colorScheme.secondary,
         ),
       ),
+    );
+  }
+
+  /// Share app with others
+  /// Opens share sheet with the message to send to others
+  void shareApp() {
+    const String shareMsg =
+        "Hi there,\nCheck out Chamo QR🦎!\n\nIt's a super fast and beautiful QR scanner and generator I've been using. Makes handling QR codes so much easier.\n\n"
+        "Explore the project: https://github.com/jydv402/chamo_qr\n\n"
+        "Get the latest app: https://github.com/jydv402/chamo_qr/releases/latest";
+
+    SharePlus.instance.share(
+      ShareParams(subject: "Share Chamo QR with others", text: shareMsg),
     );
   }
 }

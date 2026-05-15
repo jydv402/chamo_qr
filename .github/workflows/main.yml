@@ -61,14 +61,14 @@ jobs:
           echo "storeFile=keystore.jks" >> android/key.properties
 
       - name: Building signed APK 
-        run: flutter build apk --release --split-per-abi --flavor github
+        run: flutter build apk --release --split-per-abi
 
       - name: Rename APK files
         run: |
           cd build/app/outputs/flutter-apk
-          mv app-armeabi-v7a-github-release.apk chamoQR-armeabi-v7a-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
-          mv app-arm64-v8a-github-release.apk chamoQR-arm64-v8a-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
-          mv app-x86_64-github-release.apk chamoQR-x86_64-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
+          mv app-armeabi-v7a-release.apk chamoQR-armeabi-v7a-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
+          mv app-arm64-v8a-release.apk chamoQR-arm64-v8a-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
+          mv app-x86_64-release.apk chamoQR-x86_64-${{ steps.version.outputs.version_name }}+${{ steps.version.outputs.version_code }}.apk
 
       - name: Upload APK
         uses: ncipollo/release-action@v1

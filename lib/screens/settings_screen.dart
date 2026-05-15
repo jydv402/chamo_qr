@@ -8,7 +8,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:chamo_qr_app/elements/build_section_header.dart';
 import 'package:chamo_qr_app/elements/build_navigation_row.dart';
 import 'package:chamo_qr_app/controllers/settings_controller.dart';
-import 'package:chamo_qr_app/config/flavor_config.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -218,36 +217,34 @@ class SettingsScreen extends StatelessWidget {
           ),
 
           // Updates Section
-          if (FlavorConfig.isUpdateFeatureEnabled) ...[
-            buildSectionHeader(context, 'Updates', null),
-            buildSectionContainer(
-              context,
-              Column(
-                children: [
-                  Obx(
-                    () => _buildToggleRow(
-                      context,
-                      icon: Icons.refresh_rounded,
-                      label: "Auto check for updates",
-                      value: settingsController.autoCheckForUpdates.value,
-                      onChanged: (val) {
-                        settingsController.toggleAutoCheckUpdates(val);
-                      },
-                    ),
-                  ),
-                  buildDivider(context),
-                  buildNavigationRow(
+          buildSectionHeader(context, 'Updates', null),
+          buildSectionContainer(
+            context,
+            Column(
+              children: [
+                Obx(
+                  () => _buildToggleRow(
                     context,
-                    icon: Icons.upload_rounded,
-                    label: 'Check for updates',
-                    onTap: () =>
-                        settingsController.checkForUpdates(context, true),
+                    icon: Icons.refresh_rounded,
+                    label: "Auto check for updates",
+                    value: settingsController.autoCheckForUpdates.value,
+                    onChanged: (val) {
+                      settingsController.toggleAutoCheckUpdates(val);
+                    },
                   ),
-                ],
-              ),
-              isDark,
+                ),
+                buildDivider(context),
+                buildNavigationRow(
+                  context,
+                  icon: Icons.upload_rounded,
+                  label: 'Check for updates',
+                  onTap: () =>
+                      settingsController.checkForUpdates(context, true),
+                ),
+              ],
             ),
-          ],
+            isDark,
+          ),
 
           // Support Settings
           buildSectionHeader(context, 'Support', null),

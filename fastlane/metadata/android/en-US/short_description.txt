@@ -1,1 +1,0 @@
-A modern, fast, and secure QR code scanner and generator. Scan anything, create custom QR codes, and keep track of your history—all in one place.

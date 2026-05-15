@@ -12,60 +12,58 @@ class BottomNavBar extends StatelessWidget {
     // Check if the current theme is dark
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
-    return Center(
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-        decoration: BoxDecoration(
-          color: isDark ? Theme.of(context).colorScheme.surface : Colors.white,
-          borderRadius: BorderRadius.circular(32.0),
-          boxShadow: [
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      decoration: BoxDecoration(
+        color: isDark ? Theme.of(context).colorScheme.surface : Colors.white,
+        borderRadius: BorderRadius.circular(32.0),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 20,
+            offset: const Offset(0, 10),
+          ),
+          if (!isDark)
             BoxShadow(
               color: Colors.black.withValues(alpha: 0.05),
-              blurRadius: 20,
-              offset: const Offset(0, 10),
+              spreadRadius: 1,
             ),
-            if (!isDark)
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.05),
-                spreadRadius: 1,
-              ),
-            if (isDark)
-              BoxShadow(
-                color: Colors.white.withValues(alpha: 0.05),
-                spreadRadius: 1,
-              ),
+          if (isDark)
+            BoxShadow(
+              color: Colors.white.withValues(alpha: 0.05),
+              spreadRadius: 1,
+            ),
+        ],
+      ),
+      child: Obx(
+        () => Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _buildNavItem(
+              context: context,
+              icon: Icons.qr_code_scanner_rounded,
+              index: 0,
+              isSelected: controller.currentIndex.value == 0,
+              onTap: () => controller.changeIndex(0),
+            ),
+            const SizedBox(width: 4),
+            _buildNavItem(
+              context: context,
+              icon: Icons.add_rounded,
+              index: 1,
+              isSelected: controller.currentIndex.value == 1,
+              onTap: () => controller.changeIndex(1),
+              isCenter: true,
+            ),
+            const SizedBox(width: 4),
+            _buildNavItem(
+              context: context,
+              icon: Icons.history_rounded,
+              index: 2,
+              isSelected: controller.currentIndex.value == 2,
+              onTap: () => controller.changeIndex(2),
+            ),
           ],
-        ),
-        child: Obx(
-          () => Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildNavItem(
-                context: context,
-                icon: Icons.qr_code_scanner_rounded,
-                index: 0,
-                isSelected: controller.currentIndex.value == 0,
-                onTap: () => controller.changeIndex(0),
-              ),
-              const SizedBox(width: 4),
-              _buildNavItem(
-                context: context,
-                icon: Icons.add_rounded,
-                index: 1,
-                isSelected: controller.currentIndex.value == 1,
-                onTap: () => controller.changeIndex(1),
-                isCenter: true,
-              ),
-              const SizedBox(width: 4),
-              _buildNavItem(
-                context: context,
-                icon: Icons.history_rounded,
-                index: 2,
-                isSelected: controller.currentIndex.value == 2,
-                onTap: () => controller.changeIndex(2),
-              ),
-            ],
-          ),
         ),
       ),
     );

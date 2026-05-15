@@ -41,22 +41,13 @@ class _MainScreenState extends State<MainScreen> {
     ];
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Obx(
-        () => Stack(
-          children: [
-            // The current active page
+        () =>
             IndexedStack(index: controller.currentIndex.value, children: pages),
-
-            // Floating bottom navigation bar
-            const Positioned(
-              bottom: 52.0,
-              left: 0,
-              right: 0,
-              child: BottomNavBar(),
-            ),
-          ],
-        ),
       ),
+      floatingActionButton: const BottomNavBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

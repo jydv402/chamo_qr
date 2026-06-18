@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:update_checker_bottom_sheet/update_checker_bottom_sheet.dart';
 import '../services/settings_service.dart';
+import '../theme/app_theme.dart';
 
 class SettingsController extends GetxController {
   static const String appVersion = String.fromEnvironment(
@@ -92,21 +93,11 @@ class SettingsController extends GetxController {
   /// * `context`: The build context.
   /// * `showIfUpToDate`: Whether to show the bottom sheet if the app is up to date.
   void checkForUpdates(BuildContext context, bool showIfUpToDate) async {
-    await UpdateCheckerBottomSheet.checkAndUpdate(
+    UpdateChecker.theme = AppTheme.updateCheckerThemeData;
+    await UpdateChecker.check(
       context,
       showIfUpToDate: showIfUpToDate,
-      config: UpdateCheckerConfig(
-        bottomSheetStyles: UpdateBottomSheetStyles(
-          showHandle: true,
-          showBorder: true,
-          borderColor: Colors.grey.withValues(alpha: 0.3),
-        ),
-        githubRepo: "jydv402/chamo_qr",
-        bottomSheetColors: UpdateBottomSheetColors(
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          accentColor: Theme.of(context).colorScheme.secondary,
-        ),
-      ),
+      githubRepo: "jydv402/chamo_qr",
     );
   }
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:update_checker_bottom_sheet/update_checker_bottom_sheet.dart';
 
 class AppTheme {
   // Common Colors
@@ -33,6 +35,7 @@ class AppTheme {
       brightness: Brightness.light,
       primaryColor: primaryLight,
       scaffoldBackgroundColor: bgLight,
+      canvasColor: cardLight,
       colorScheme: ColorScheme.light(
         primary: primaryLight,
         secondary: accentBlueLight,
@@ -118,6 +121,7 @@ class AppTheme {
       brightness: Brightness.dark,
       primaryColor: primaryDark,
       scaffoldBackgroundColor: bgDark,
+      canvasColor: cardDark,
       colorScheme: ColorScheme.dark(
         primary: primaryDark,
         secondary: accentBlueDark,
@@ -205,4 +209,84 @@ class AppTheme {
     'vCard': Colors.red,
     'UPI': Colors.purple,
   };
+
+  static final UpdateCheckerThemeData updateCheckerThemeLight =
+      UpdateCheckerThemeData(
+    backgroundColor: cardLight,
+    textColor: textMainLight,
+    secondaryTextColor: textSubLight,
+    accentColor: primaryLight,
+    accentTextColor: Colors.white,
+    pillColor: bgLight,
+    boxColor: const Color(0xFFE4E4E7),
+    handleColor: const Color(0xFFD1D5DB),
+    borderRadius: 32.0,
+    buttonBorderRadius: 16.0,
+    padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+    showHandle: true,
+    titleStyle: const TextStyle(
+      fontFamily: 'DMSans',
+      fontWeight: FontWeight.bold,
+      fontSize: 22,
+      color: textMainLight,
+    ),
+    whatsNewStyle: const TextStyle(
+      fontFamily: 'DMSans',
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      color: textMainLight,
+    ),
+    versionStyle: const TextStyle(
+      fontFamily: 'GSansFlex',
+      fontSize: 14,
+      color: textSubLight,
+    ),
+    contentStyle: const TextStyle(
+      fontFamily: 'GSansFlex',
+      fontSize: 14,
+      color: textMainLight,
+    ),
+  );
+
+  static final UpdateCheckerThemeData updateCheckerThemeDark =
+      UpdateCheckerThemeData(
+    backgroundColor: cardDark,
+    textColor: textMainDark,
+    secondaryTextColor: textSubDark,
+    accentColor: Colors.white,
+    accentTextColor: Colors.black,
+    pillColor: bgDark,
+    boxColor: const Color(0xFF27272A),
+    handleColor: const Color(0xFF374151),
+    borderRadius: 32.0,
+    buttonBorderRadius: 16.0,
+    padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+    showHandle: true,
+    titleStyle: const TextStyle(
+      fontFamily: 'DMSans',
+      fontWeight: FontWeight.bold,
+      fontSize: 22,
+      color: textMainDark,
+    ),
+    whatsNewStyle: const TextStyle(
+      fontFamily: 'DMSans',
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      color: textMainDark,
+    ),
+    versionStyle: const TextStyle(
+      fontFamily: 'GSansFlex',
+      fontSize: 14,
+      color: textSubDark,
+    ),
+    contentStyle: const TextStyle(
+      fontFamily: 'GSansFlex',
+      fontSize: 14,
+      color: textMainDark,
+    ),
+  );
+
+  static UpdateCheckerThemeData get updateCheckerThemeData {
+    return Get.isDarkMode ? updateCheckerThemeDark : updateCheckerThemeLight;
+  }
 }

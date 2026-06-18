@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import '../controllers/bottom_nav_controller.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -106,7 +107,10 @@ class BottomNavBar extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        HapticHelper.selectionClick();
+        onTap();
+      },
       behavior: HitTestBehavior.opaque,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),

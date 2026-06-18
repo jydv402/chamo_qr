@@ -4,6 +4,7 @@ import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
 import 'package:chamo_qr_app/theme/app_theme.dart';
 import 'package:chamo_qr_app/widgets/confirmation_bottom_sheet.dart';
 import 'package:chamo_qr_app/widgets/rename_bottom_sheet.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:get/get.dart';
@@ -72,36 +73,39 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                 ),
                 const SizedBox(height: 8),
                 GestureDetector(
-                  onTap: () => Get.bottomSheet(
-                    RenameBottomSheet(
-                      nameController: _nameController,
-                      title: _currentRecord.title,
-                      onConfirm: () async {
-                        // Get new title from controller
-                        final newTitle = _nameController.text.trim().isNotEmpty
-                            ? _nameController.text.trim()
-                            : null;
+                  onTap: () {
+                    HapticHelper.trigger();
+                    Get.bottomSheet(
+                      RenameBottomSheet(
+                        nameController: _nameController,
+                        title: _currentRecord.title,
+                        onConfirm: () async {
+                          // Get new title from controller
+                          final newTitle = _nameController.text.trim().isNotEmpty
+                              ? _nameController.text.trim()
+                              : null;
 
-                        // Update record
-                        final updatedRecord = _currentRecord.copyWith(
-                          title: newTitle,
-                        );
-
-                        // Update state
-                        setState(() {
-                          _currentRecord = updatedRecord;
-                        });
-
-                        // Update history controller
-                        if (Get.isRegistered<HistoryController>()) {
-                          Get.find<HistoryController>().updateRecord(
-                            updatedRecord,
+                          // Update record
+                          final updatedRecord = _currentRecord.copyWith(
+                            title: newTitle,
                           );
-                        }
-                        Get.back();
-                      },
-                    ),
-                  ),
+
+                          // Update state
+                          setState(() {
+                            _currentRecord = updatedRecord;
+                          });
+
+                          // Update history controller
+                          if (Get.isRegistered<HistoryController>()) {
+                            Get.find<HistoryController>().updateRecord(
+                              updatedRecord,
+                            );
+                          }
+                          Get.back();
+                        },
+                      ),
+                    );
+                  },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -127,6 +131,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
             // QR Image
             GestureDetector(
               onTap: () {
+                HapticHelper.trigger();
                 Get.toNamed('/qrDisplay', arguments: record);
               },
               child: SizedBox(
@@ -201,6 +206,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
               IconButton(
                 icon: Icon(Icons.content_copy_rounded, color: Colors.grey[400]),
                 onPressed: () {
+                  HapticHelper.mediumImpact();
                   Clipboard.setData(ClipboardData(text: record.data));
                   Get.snackbar(
                     'Copied',
@@ -255,6 +261,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
           child: ElevatedButton(
             onPressed: record.format == 'URL'
                 ? () async {
+                    HapticHelper.trigger();
                     final uri = Uri.parse(record.data);
                     if (await canLaunchUrl(uri)) {
                       await launchUrl(
@@ -411,7 +418,10 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
     return SizedBox(
       height: 56,
       child: ElevatedButton(
-        onPressed: onTap,
+        onPressed: () {
+          HapticHelper.trigger();
+          onTap();
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: isDark ? Colors.grey[700] : Colors.grey[100],
           foregroundColor: isDark ? Colors.white : Colors.black,

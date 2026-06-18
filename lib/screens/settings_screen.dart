@@ -1,6 +1,7 @@
 import 'package:chamo_qr_app/elements/build_section_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:chamo_qr_app/elements/build_divider.dart';
 import 'package:chamo_qr_app/widgets/confirmation_bottom_sheet.dart';
 import 'package:chamo_qr_app/controllers/history_controller.dart';
@@ -29,7 +30,10 @@ class SettingsScreen extends StatelessWidget {
             Icons.arrow_back,
             color: isDark ? Colors.white : Colors.black,
           ),
-          onPressed: () => Get.back(),
+          onPressed: () {
+            HapticHelper.trigger();
+            Get.back();
+          },
           style: IconButton.styleFrom(
             backgroundColor: Theme.of(context).colorScheme.surface,
           ),
@@ -121,17 +125,6 @@ class SettingsScreen extends StatelessWidget {
                 Obx(
                   () => _buildToggleRow(
                     context,
-                    icon: Icons.vibration,
-                    label: 'Vibrate on Scan',
-                    value: settingsController.hapticFeedback.value,
-                    onChanged: (val) =>
-                        settingsController.toggleHapticFeedback(val),
-                  ),
-                ),
-                buildDivider(context),
-                Obx(
-                  () => _buildToggleRow(
-                    context,
                     icon: Icons.volume_up,
                     label: 'Beep on Scan',
                     value: settingsController.scanSounds.value,
@@ -170,6 +163,17 @@ class SettingsScreen extends StatelessWidget {
                         .name
                         .capitalizeFirst!,
                     onTap: () => settingsController.updateThemeMode(),
+                  ),
+                ),
+                buildDivider(context),
+                Obx(
+                  () => _buildToggleRow(
+                    context,
+                    icon: Icons.vibration,
+                    label: 'Haptic Feedback',
+                    value: settingsController.hapticFeedback.value,
+                    onChanged: (val) =>
+                        settingsController.toggleHapticFeedback(val),
                   ),
                 ),
               ],
@@ -330,7 +334,10 @@ class SettingsScreen extends StatelessWidget {
           const Spacer(),
           Switch(
             value: value,
-            onChanged: onChanged,
+            onChanged: (val) {
+              HapticHelper.selectionClick();
+              onChanged(val);
+            },
             activeThumbColor: Colors.white,
             activeTrackColor: isDark
                 ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.5)

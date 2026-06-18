@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import '../controllers/qr_scanner_controller.dart';
 import '../widgets/glitter_overlay.dart';
 
@@ -118,7 +119,10 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
                         color: Colors.white,
                         size: 20,
                       ),
-                      onPressed: () => Get.back(),
+                      onPressed: () {
+                        HapticHelper.trigger();
+                        Get.back();
+                      },
                     ),
                   ),
                   if (_isScanning)
@@ -170,7 +174,10 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
                       ],
                     ),
                     child: ElevatedButton(
-                      onPressed: _performScan,
+                      onPressed: () {
+                        HapticHelper.trigger();
+                        _performScan();
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent,

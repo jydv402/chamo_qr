@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 
 /// Build a bottom button with icon and label
 ///
@@ -16,7 +17,10 @@ Widget buildBottomButton(
   return SizedBox(
     height: 56,
     child: ElevatedButton(
-      onPressed: onTap,
+      onPressed: () {
+        HapticHelper.trigger();
+        onTap();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: isDark ? Colors.grey[700] : Colors.grey[100],
         foregroundColor: isDark ? Colors.white : Colors.black,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 
 class ConfirmationBottomSheet extends StatelessWidget {
   final String header;
@@ -39,7 +40,10 @@ class ConfirmationBottomSheet extends StatelessWidget {
                   ),
                   elevation: 0,
                 ),
-                onPressed: () => Get.back(),
+                onPressed: () {
+                  HapticHelper.trigger();
+                  Get.back();
+                },
                 child: Text(
                   "Cancel",
                   style: TextStyle(color: isDark ? Colors.white : Colors.black),
@@ -58,6 +62,7 @@ class ConfirmationBottomSheet extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
+                  HapticHelper.trigger();
                   onConfirm();
                   Get.back();
                 },

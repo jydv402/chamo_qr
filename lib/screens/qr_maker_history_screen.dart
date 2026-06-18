@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:chamo_qr_app/controllers/bottom_nav_controller.dart';
 import 'package:chamo_qr_app/theme/app_theme.dart';
 import 'package:chamo_qr_app/widgets/history_item.dart';
@@ -67,6 +68,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                         color: isDark ? Colors.white : Colors.grey[800],
                       ),
                       onPressed: () {
+                        HapticHelper.trigger();
                         Get.toNamed('/settings');
                       },
                     ),
@@ -103,6 +105,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
+                          HapticHelper.selectionClick();
                           // Change the index to 2 to goto history screen
                           Get.find<BottomNavController>().changeIndex(2);
                         },
@@ -146,6 +149,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 12),
                           child: GestureDetector(
                             onTap: () {
+                              HapticHelper.trigger();
                               Get.bottomSheet(
                                 ScanResultBottomSheet(record: record),
                                 isScrollControlled: true,
@@ -345,6 +349,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                 onPressed: controller.isGenerating.value
                     ? null
                     : () {
+                        HapticHelper.trigger();
                         controller.generateQrCode();
                         controller.focusNode1.unfocus();
                         controller.focusNode2.unfocus();
@@ -405,7 +410,10 @@ class QrMakerHistoryScreen extends StatelessWidget {
     }
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        HapticHelper.selectionClick();
+        onTap();
+      },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(

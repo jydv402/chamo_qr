@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import '../controllers/qr_scanner_controller.dart';
 import '../widgets/scan_frame.dart';
@@ -69,6 +70,7 @@ class QrScannerScreen extends StatelessWidget {
                   child: IconButton(
                     icon: const Icon(Icons.settings, color: Colors.white),
                     onPressed: () {
+                      HapticHelper.trigger();
                       Get.toNamed('/settings');
                     },
                   ),
@@ -125,7 +127,10 @@ class QrScannerScreen extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: onTap,
+          onTap: () {
+            HapticHelper.trigger();
+            onTap();
+          },
           child: Container(
             width: 56,
             height: 56,

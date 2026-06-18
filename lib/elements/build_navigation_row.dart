@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 
 /// Build a navigation row with an icon, label, value text, and an on tap callback
 ///
@@ -17,7 +18,10 @@ Widget buildNavigationRow(
 }) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
   return InkWell(
-    onTap: onTap,
+    onTap: () {
+      HapticHelper.trigger();
+      onTap();
+    },
     borderRadius: BorderRadius.circular(24),
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),

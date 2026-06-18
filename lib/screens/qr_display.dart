@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:chamo_qr_app/elements/build_divider.dart';
 import 'package:chamo_qr_app/elements/build_navigation_row.dart';
 import 'package:chamo_qr_app/elements/build_section_header.dart';
@@ -36,7 +37,10 @@ class QrDisplayScreen extends StatelessWidget {
               Icons.arrow_back,
               color: isDark ? Colors.white : Colors.black,
             ),
-            onPressed: () => Get.back(),
+            onPressed: () {
+              HapticHelper.trigger();
+              Get.back();
+            },
           ),
         ),
         body: const Center(child: Text('Error: No QR code data found')),
@@ -65,7 +69,10 @@ class QrDisplayScreen extends StatelessWidget {
             Icons.arrow_back,
             color: isDark ? Colors.white : Colors.black,
           ),
-          onPressed: () => Get.back(),
+          onPressed: () {
+            HapticHelper.trigger();
+            Get.back();
+          },
           style: IconButton.styleFrom(
             backgroundColor: Theme.of(context).colorScheme.surface,
           ),

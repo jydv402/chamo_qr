@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 import 'package:chamo_qr_app/widgets/history_item.dart';
 import '../controllers/history_controller.dart';
 import '../widgets/scan_result_bottom_sheet.dart';
@@ -72,6 +73,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                         color: isDark ? Colors.white : Colors.grey[800],
                       ),
                       onPressed: () {
+                        HapticHelper.trigger();
                         Get.toNamed('/settings');
                       },
                     ),
@@ -109,7 +111,10 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                         children: [
                           Expanded(
                             child: GestureDetector(
-                              onTap: () => setState(() => _isScannedTab = true),
+                              onTap: () {
+                                HapticHelper.selectionClick();
+                                setState(() => _isScannedTab = true);
+                              },
                               child: AnimatedContainer(
                                 duration: const Duration(milliseconds: 200),
                                 padding: const EdgeInsets.symmetric(
@@ -150,8 +155,10 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                           ),
                           Expanded(
                             child: GestureDetector(
-                              onTap: () =>
-                                  setState(() => _isScannedTab = false),
+                              onTap: () {
+                                HapticHelper.selectionClick();
+                                setState(() => _isScannedTab = false);
+                              },
                               child: AnimatedContainer(
                                 duration: const Duration(milliseconds: 200),
                                 padding: const EdgeInsets.symmetric(
@@ -236,6 +243,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
             padding: const EdgeInsets.only(bottom: 12),
             child: GestureDetector(
               onTap: () {
+                HapticHelper.trigger();
                 Get.bottomSheet(
                   ScanResultBottomSheet(record: record),
                   isScrollControlled: true,
@@ -279,6 +287,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
             padding: const EdgeInsets.only(bottom: 12),
             child: GestureDetector(
               onTap: () {
+                HapticHelper.trigger();
                 Get.bottomSheet(
                   ScanResultBottomSheet(record: record),
                   isScrollControlled: true,

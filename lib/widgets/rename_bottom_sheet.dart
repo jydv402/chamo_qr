@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:chamo_qr_app/elements/build_base_bottom_sheet.dart';
+import 'package:chamo_qr_app/utils/haptic_helper.dart';
 
 class RenameBottomSheet extends StatelessWidget {
   final TextEditingController nameController;
@@ -52,7 +53,10 @@ class RenameBottomSheet extends StatelessWidget {
                   ),
                   elevation: 0,
                 ),
-                onPressed: () => Get.back(),
+                onPressed: () {
+                  HapticHelper.trigger();
+                  Get.back();
+                },
                 child: Text(
                   "Cancel",
                   style: TextStyle(color: isDark ? Colors.white : Colors.black),
@@ -69,7 +73,10 @@ class RenameBottomSheet extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
-                onPressed: () => onConfirm(),
+                onPressed: () {
+                  HapticHelper.trigger();
+                  onConfirm();
+                },
                 child: Text(
                   "Confirm",
                   style: TextStyle(color: isDark ? Colors.black : Colors.white),

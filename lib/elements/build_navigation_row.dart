@@ -19,7 +19,7 @@ Widget buildNavigationRow(
   final isDark = Theme.of(context).brightness == Brightness.dark;
   return InkWell(
     onTap: () {
-      HapticHelper.trigger();
+      HapticHelper.light();
       onTap();
     },
     borderRadius: BorderRadius.circular(24),

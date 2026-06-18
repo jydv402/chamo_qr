@@ -38,7 +38,7 @@ class QrDisplayScreen extends StatelessWidget {
               color: isDark ? Colors.white : Colors.black,
             ),
             onPressed: () {
-              HapticHelper.trigger();
+              HapticHelper.light();
               Get.back();
             },
           ),
@@ -70,7 +70,7 @@ class QrDisplayScreen extends StatelessWidget {
             color: isDark ? Colors.white : Colors.black,
           ),
           onPressed: () {
-            HapticHelper.trigger();
+            HapticHelper.light();
             Get.back();
           },
           style: IconButton.styleFrom(

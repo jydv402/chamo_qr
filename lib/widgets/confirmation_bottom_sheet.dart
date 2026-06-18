@@ -41,7 +41,7 @@ class ConfirmationBottomSheet extends StatelessWidget {
                   elevation: 0,
                 ),
                 onPressed: () {
-                  HapticHelper.trigger();
+                  HapticHelper.light();
                   Get.back();
                 },
                 child: Text(
@@ -62,7 +62,7 @@ class ConfirmationBottomSheet extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  HapticHelper.trigger();
+                  HapticHelper.heavy();
                   onConfirm();
                   Get.back();
                 },

@@ -74,7 +74,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                 const SizedBox(height: 8),
                 GestureDetector(
                   onTap: () {
-                    HapticHelper.trigger();
+                    HapticHelper.light();
                     Get.bottomSheet(
                       RenameBottomSheet(
                         nameController: _nameController,
@@ -131,7 +131,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
             // QR Image
             GestureDetector(
               onTap: () {
-                HapticHelper.trigger();
+                HapticHelper.light();
                 Get.toNamed('/qrDisplay', arguments: record);
               },
               child: SizedBox(
@@ -206,7 +206,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
               IconButton(
                 icon: Icon(Icons.content_copy_rounded, color: Colors.grey[400]),
                 onPressed: () {
-                  HapticHelper.mediumImpact();
+                  HapticHelper.medium();
                   Clipboard.setData(ClipboardData(text: record.data));
                   Get.snackbar(
                     'Copied',
@@ -261,7 +261,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
           child: ElevatedButton(
             onPressed: record.format == 'URL'
                 ? () async {
-                    HapticHelper.trigger();
+                    HapticHelper.light();
                     final uri = Uri.parse(record.data);
                     if (await canLaunchUrl(uri)) {
                       await launchUrl(
@@ -311,6 +311,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                 icon: Icons.cleaning_services_rounded,
                 label: 'Delete',
                 onTap: () {
+                  HapticHelper.light();
                   Get.bottomSheet(
                     ConfirmationBottomSheet(
                       header: "Delete QR Code",
@@ -337,6 +338,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
                 icon: Icons.share_rounded,
                 label: 'Share',
                 onTap: () {
+                  HapticHelper.medium();
                   SharePlus.instance.share(
                     ShareParams(
                       text: record.data,
@@ -418,10 +420,7 @@ class _ScanResultBottomSheetState extends State<ScanResultBottomSheet> {
     return SizedBox(
       height: 56,
       child: ElevatedButton(
-        onPressed: () {
-          HapticHelper.trigger();
-          onTap();
-        },
+        onPressed: onTap,
         style: ElevatedButton.styleFrom(
           backgroundColor: isDark ? Colors.grey[700] : Colors.grey[100],
           foregroundColor: isDark ? Colors.white : Colors.black,

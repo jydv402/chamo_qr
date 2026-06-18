@@ -108,8 +108,10 @@ class BottomNavBar extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        HapticHelper.selectionClick();
-        onTap();
+        HapticHelper.light();
+        Future.delayed(const Duration(milliseconds: 50), () {
+          onTap();
+        });
       },
       behavior: HitTestBehavior.opaque,
       child: AnimatedContainer(

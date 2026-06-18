@@ -18,7 +18,7 @@ Widget buildBottomButton(
     height: 56,
     child: ElevatedButton(
       onPressed: () {
-        HapticHelper.trigger();
+        HapticHelper.light();
         onTap();
       },
       style: ElevatedButton.styleFrom(

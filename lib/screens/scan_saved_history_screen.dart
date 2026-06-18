@@ -73,7 +73,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                         color: isDark ? Colors.white : Colors.grey[800],
                       ),
                       onPressed: () {
-                        HapticHelper.trigger();
+                        HapticHelper.light();
                         Get.toNamed('/settings');
                       },
                     ),
@@ -112,7 +112,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                HapticHelper.selectionClick();
+                                HapticHelper.light();
                                 setState(() => _isScannedTab = true);
                               },
                               child: AnimatedContainer(
@@ -156,7 +156,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
                           Expanded(
                             child: GestureDetector(
                               onTap: () {
-                                HapticHelper.selectionClick();
+                                HapticHelper.light();
                                 setState(() => _isScannedTab = false);
                               },
                               child: AnimatedContainer(
@@ -243,7 +243,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
             padding: const EdgeInsets.only(bottom: 12),
             child: GestureDetector(
               onTap: () {
-                HapticHelper.trigger();
+                HapticHelper.light();
                 Get.bottomSheet(
                   ScanResultBottomSheet(record: record),
                   isScrollControlled: true,
@@ -287,7 +287,7 @@ class _ScanSavedHistoryScreenState extends State<ScanSavedHistoryScreen> {
             padding: const EdgeInsets.only(bottom: 12),
             child: GestureDetector(
               onTap: () {
-                HapticHelper.trigger();
+                HapticHelper.light();
                 Get.bottomSheet(
                   ScanResultBottomSheet(record: record),
                   isScrollControlled: true,

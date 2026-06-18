@@ -31,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
             color: isDark ? Colors.white : Colors.black,
           ),
           onPressed: () {
-            HapticHelper.trigger();
+            HapticHelper.light();
             Get.back();
           },
           style: IconButton.styleFrom(
@@ -307,53 +307,64 @@ class SettingsScreen extends StatelessWidget {
     required ValueChanged<bool> onChanged,
   }) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      child: Row(
-        children: [
-          Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              color: isDark ? Colors.grey[700] : Colors.grey[100],
-              shape: BoxShape.circle,
-            ),
-            child: Icon(
-              icon,
-              size: 16,
-              color: isDark ? Colors.white : Colors.black,
-            ),
-          ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Text(
-              label,
-              style: const TextStyle(fontWeight: FontWeight.w500),
-            ),
-          ),
-          const Spacer(),
-          Switch(
-            value: value,
-            onChanged: (val) {
-              HapticHelper.selectionClick();
-              onChanged(val);
-            },
-            activeThumbColor: Colors.white,
-            activeTrackColor: isDark
-                ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.5)
-                : Colors.black.withValues(alpha: 0.2),
-            thumbIcon: WidgetStatePropertyAll(
-              Icon(
-                value ? Icons.check_rounded : Icons.close_rounded,
-                color: value
-                    ? Colors.black
-                    : isDark
-                    ? Colors.black
-                    : Colors.white,
+    return GestureDetector(
+      onTap: () {
+        HapticHelper.light();
+        Future.delayed(const Duration(milliseconds: 50), () {
+          onChanged(!value);
+        });
+      },
+      behavior: HitTestBehavior.opaque,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        child: Row(
+          children: [
+            Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                color: isDark ? Colors.grey[700] : Colors.grey[100],
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                icon,
+                size: 16,
+                color: isDark ? Colors.white : Colors.black,
               ),
             ),
-          ),
-        ],
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                label,
+                style: const TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+            const Spacer(),
+            Switch(
+              value: value,
+              onChanged: (val) {
+                HapticHelper.light();
+                Future.delayed(const Duration(milliseconds: 50), () {
+                  onChanged(val);
+                });
+              },
+              activeThumbColor: Colors.white,
+              activeTrackColor: isDark
+                  ? Theme.of(context).colorScheme.primary.withValues(alpha: 0.5)
+                  : Colors.black.withValues(alpha: 0.2),
+              thumbIcon: WidgetStatePropertyAll(
+                Icon(
+                  value ? Icons.check_rounded : Icons.close_rounded,
+                  color: value
+                      ? Colors.black
+                      : isDark
+                      ? Colors.black
+                      : Colors.white,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

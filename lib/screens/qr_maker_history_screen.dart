@@ -68,7 +68,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                         color: isDark ? Colors.white : Colors.grey[800],
                       ),
                       onPressed: () {
-                        HapticHelper.trigger();
+                        HapticHelper.light();
                         Get.toNamed('/settings');
                       },
                     ),
@@ -105,7 +105,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          HapticHelper.selectionClick();
+                          HapticHelper.light();
                           // Change the index to 2 to goto history screen
                           Get.find<BottomNavController>().changeIndex(2);
                         },
@@ -149,7 +149,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 12),
                           child: GestureDetector(
                             onTap: () {
-                              HapticHelper.trigger();
+                              HapticHelper.light();
                               Get.bottomSheet(
                                 ScanResultBottomSheet(record: record),
                                 isScrollControlled: true,
@@ -349,7 +349,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
                 onPressed: controller.isGenerating.value
                     ? null
                     : () {
-                        HapticHelper.trigger();
+                        HapticHelper.light();
                         controller.generateQrCode();
                         controller.focusNode1.unfocus();
                         controller.focusNode2.unfocus();
@@ -411,7 +411,7 @@ class QrMakerHistoryScreen extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        HapticHelper.selectionClick();
+        HapticHelper.light();
         onTap();
       },
       child: Container(

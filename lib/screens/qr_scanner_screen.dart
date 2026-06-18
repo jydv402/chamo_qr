@@ -70,7 +70,7 @@ class QrScannerScreen extends StatelessWidget {
                   child: IconButton(
                     icon: const Icon(Icons.settings, color: Colors.white),
                     onPressed: () {
-                      HapticHelper.trigger();
+                      HapticHelper.light();
                       Get.toNamed('/settings');
                     },
                   ),
@@ -128,7 +128,7 @@ class QrScannerScreen extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            HapticHelper.trigger();
+            HapticHelper.light();
             onTap();
           },
           child: Container(

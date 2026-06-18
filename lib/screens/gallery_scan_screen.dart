@@ -120,7 +120,7 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
                         size: 20,
                       ),
                       onPressed: () {
-                        HapticHelper.trigger();
+                        HapticHelper.light();
                         Get.back();
                       },
                     ),
@@ -175,7 +175,7 @@ class _GalleryScanScreenState extends State<GalleryScanScreen> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        HapticHelper.trigger();
+                        HapticHelper.light();
                         _performScan();
                       },
                       style: ElevatedButton.styleFrom(

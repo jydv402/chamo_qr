@@ -54,7 +54,7 @@ class RenameBottomSheet extends StatelessWidget {
                   elevation: 0,
                 ),
                 onPressed: () {
-                  HapticHelper.trigger();
+                  HapticHelper.light();
                   Get.back();
                 },
                 child: Text(
@@ -74,7 +74,7 @@ class RenameBottomSheet extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  HapticHelper.trigger();
+                  HapticHelper.light();
                   onConfirm();
                 },
                 child: Text(
